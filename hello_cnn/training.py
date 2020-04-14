@@ -28,10 +28,10 @@ model.add(Flatten())
 model.add(Dense(24))
 model.add(Dropout(0.6))
 model.add(Activation('relu'))
-model.add(Dense(4, activation='softmax'))
+model.add(Dense(5, activation='softmax'))
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-model.fit(X, Y, epochs=180, batch_size=72)
+model.fit(X, Y, epochs=200, batch_size=80)
 
 # serialize model to JSON
 model_json = model.to_json()

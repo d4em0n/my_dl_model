@@ -16,7 +16,7 @@ loaded_model.load_weights("model.h5")
 
 loaded_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-countries = ["russian", "chinese", "arabic", "germany"]
+countries = ["russian", "chinese", "arabic", "germany", "korean"]
 tokenizer = pickle.load(open("tokenizer.pc", "rb"))
 
 while True:

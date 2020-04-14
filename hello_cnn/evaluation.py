@@ -1,13 +1,17 @@
 from keras.models import Sequential, model_from_json
 from keras.layers import Conv1D, Dense, MaxPool1D, Flatten, Input, Activation, Dropout
 from keras.utils import to_categorical
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing import sequence
 import numpy as np
 import pandas as pd
+import string
 
-test_dataset = np.loadtxt("evaluation.csv", delimiter=",", converters={0:int})
-X_test = test_dataset[:,0:24]
+data = pd.read_csv("evaluation.csv", sep=",",  dtype={"nama":str,"country":int})
+tokenizer = pickle.load(open("tokenizer.pc", "rb"))
+X_test = sequence.pad_sequences(tokenizer.texts_to_sequences(data['nama']), 24)
 X_test = np.expand_dims(X_test, axis=2)
-Y_test = to_categorical(test_dataset[:,24])
+Y_test = to_categorical(data['country'].values)
 
 json_file = open('model.json', 'r')
 loaded_model_json = json_file.read()

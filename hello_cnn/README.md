@@ -3,7 +3,7 @@ This is my first experiment with deep learning. this CNN model classified countr
 
 # Datasets
 - There are 9800 chinese name, 9800 russian and 9800 arabic name (total 29400 person's name)
-- This model trained with 23520 random mixed chinese and russian name the rest of 5880 is used for evaluation/testing data.
+- This model trained with 23520 random mixed chinese, russian and arabic name the rest of 5880 is used for evaluation/testing data.
 - train.csv and evaluation.csv extracted using gen_data.py (for parsing *dataset.txt file and seperate train and testing data)
 
 # Evaluation result

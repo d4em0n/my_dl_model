@@ -15,7 +15,7 @@ accuracy: 99.11%
 # single_evaluation.py
 script single_evaluation.py is for evaluation single person name get from the argument
 ```
-$ python single_evaluation.py "xi jinping"
+$ python single_evaluation.py
 output:
 Enter the name you want to classify: nur kholifah
 probability russian names = 0.03%

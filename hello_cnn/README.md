@@ -1,15 +1,15 @@
 # Hello CNN!
-This is my first experiment with deep learning. this CNN model classified country based on person name, this CNN trained using chinese and russian names and can classified whether a person's name is chinese or russian name.
+This is my first experiment with deep learning. this CNN model classified country based on person name, this CNN trained using chinese, russian, arabic and germany.
 
 # Datasets
-- There are 9800 chinese name, 9800 russian and 9800 arabic name (total 29400 person's name)
-- This model trained with 23520 random mixed chinese, russian and arabic name the rest of 5880 is used for evaluation/testing data.
+- There are 9800 chinese, russian, arabic and germany name (total 39200 person's name)
+- This model trained with 31360 random mixed chinese, russian and arabic name the rest of 7840 is used for evaluation/testing data.
 - train.csv and evaluation.csv extracted using gen_data.py (for parsing *dataset.txt file and seperate train and testing data)
 
 # Evaluation result
 Using `evaluation.py` get the output:
 ```
-accuracy: 98.62%
+accuracy: 99.11%
 ```
 
 # single_evaluation.py
@@ -17,16 +17,29 @@ script single_evaluation.py is for evaluation single person name get from the ar
 ```
 $ python single_evaluation.py "xi jinping"
 output:
-probability russian names = 0.00%
-probability chinese names = 78.57%
-probability arabic names = 21.43%
-$ python single_evaluation.py "vladimir putin"
-output:
-probability russian names = 94.90%
+Enter the name you want to classify: nur kholifah
+probability russian names = 0.03%
 probability chinese names = 0.00%
-probability arabic names = 5.10%
-$ python single_evaluation.py "salman bin abdul-aziz al saud"
+probability arabic names = 99.97%
+probability germany names = 0.00%
+Enter the name you want to classify: xi jinping
+probability russian names = 0.00%
+probability chinese names = 100.00%
+probability arabic names = 0.00%
+probability germany names = 0.00%
+Enter the name you want to classify: vladimir putin
+probability russian names = 100.00%
+probability chinese names = 0.00%
+probability arabic names = 0.00%
+probability germany names = 0.00%
+Enter the name you want to classify: muhammad alifa ramdhan
+probability russian names = 0.40%
+probability chinese names = 0.00%
+probability arabic names = 99.60%
+probability germany names = 0.00%
+Enter the name you want to classify: Frank-Walter Steinmeier
 probability russian names = 0.00%
 probability chinese names = 0.00%
-probability arabic names = 100.00%
+probability arabic names = 0.00%
+probability germany names = 100.00%
 ```

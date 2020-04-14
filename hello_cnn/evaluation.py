@@ -5,6 +5,7 @@ from keras.preprocessing.text import Tokenizer
 from keras.preprocessing import sequence
 import numpy as np
 import pandas as pd
+import pickle
 import string
 
 data = pd.read_csv("evaluation.csv", sep=",",  dtype={"nama":str,"country":int})

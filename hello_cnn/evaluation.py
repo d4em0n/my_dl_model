@@ -10,8 +10,8 @@ import string
 
 data = pd.read_csv("evaluation.csv", sep=",",  dtype={"nama":str,"country":int})
 tokenizer = pickle.load(open("tokenizer.pc", "rb"))
-X_test = sequence.pad_sequences(tokenizer.texts_to_sequences(data['nama']), 24)
-X_test = np.expand_dims(X_test, axis=2)
+X_test = sequence.pad_sequences(tokenizer.texts_to_sequences(data['nama']), 42, padding='post')
+#X_test = np.expand_dims(X_test, axis=2)
 Y_test = to_categorical(data['country'].values)
 
 json_file = open('model.json', 'r')

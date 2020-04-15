@@ -2,7 +2,7 @@ from random import Random
 import string
 import unidecode
 
-MAX_LEN = 24
+MAX_LEN = 42
 class NameDataset:
     def __init__(self, train_file, test_file, ratio):
         self.datas = []
@@ -13,7 +13,7 @@ class NameDataset:
     def add_data_country(self, loc_file, id, max_row=-1):
         with open(loc_file) as f:
             fdatas = f.read().strip().split("\n")
-            print(len(fdatas))
+            print(loc_file)
             Random(1337).shuffle(fdatas)
             datas = []
             for fdata in fdatas[:max_row]:
@@ -25,6 +25,7 @@ class NameDataset:
 
     def write(self):
         Random(1337).shuffle(self.datas)
+        print(len(self.datas))
         n = int(round(len(self.datas)*self.ratio))
         print(n)
         test_data = self.datas[:n]
@@ -39,10 +40,20 @@ class NameDataset:
             for data in test_data:
                 f.write(",".join(map(str, data)) + "\n")
 
+rp = "datasets/"
+len_row = 9800
 dataset = NameDataset("train.csv", "evaluation.csv", 0.2)
-dataset.add_data_country("russian_name_dataset.txt", 0, 9800)
-dataset.add_data_country("chinese_name_dataset.txt", 1, 9800)
-dataset.add_data_country("arabic_name_dataset.txt", 2, 9800)
-dataset.add_data_country("german_name_dataset.txt", 3, 9800)
-dataset.add_data_country("korean_name_dataset.txt", 4, 9800)
+dataset.add_data_country(rp + "russian_name_dataset.txt", 0, len_row)
+dataset.add_data_country(rp + "chinese_name_dataset.txt", 1, len_row)
+dataset.add_data_country(rp + "arabic_name_dataset.txt", 2, len_row)
+dataset.add_data_country(rp + "german_name_dataset.txt", 3, len_row)
+dataset.add_data_country(rp + "korean_name_dataset.txt", 4, len_row)
+dataset.add_data_country(rp + "polish_name_dataset.txt", 5, len_row)
+dataset.add_data_country(rp + "scottish_name_dataset.txt", 6, len_row)
+dataset.add_data_country(rp + "italian_name_dataset.txt", 7, len_row)
+dataset.add_data_country(rp + "english_name_dataset.txt", 8, len_row)
+dataset.add_data_country(rp + "french_name_dataset.txt", 9, len_row)
+dataset.add_data_country(rp + "japanese_name_dataset.txt", 10, len_row)
+dataset.add_data_country(rp + "greece_name_dataset.txt", 11, len_row)
+dataset.add_data_country(rp + "spanish_name_dataset.txt", 12, len_row)
 dataset.write()
